@@ -13,15 +13,9 @@ shinyServer(function(input, output) {
     
     ND <- data.frame(Girth = trees$Girth)
     
-    CI <- reactive({
-        mod <- model()
-        predict(mod, newdata = ND, interval = "confidence")
-        })
+    CI <- reactive(predict(model(), newdata = ND, interval = "confidence"))
     
-    PI <- reactive({
-        mod <- model()
-        predict(mod, newdata = ND, interval = "prediction")
-    })
+    PI <- reactive(predict(model(), newdata = ND, interval = "prediction"))
     
     output$slopeOut <- renderText({
         if(is.null(model())) {
