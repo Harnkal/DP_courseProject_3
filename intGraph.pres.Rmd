@@ -39,7 +39,7 @@ You heard it right, we have improved the tool that you will never use in your li
 
 Here is a list of the several steps we used to improve this amazingly useless tool:
 
-- We added 2 flags do you can visualize the confidence and prediction interval of the resulting fit.
+- We added 2 flags so you can visualize the confidence and prediction interval of the resulting fit.
 - We made a list of things we made to improve.
 - Filled this list with as many useless itens as we could.
 - And it is pretty much that.
