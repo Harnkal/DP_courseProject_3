@@ -1,7 +1,7 @@
 library(shiny)
 
 shinyUI(fluidPage(
-    titlePanel("Visualize Many Models"),
+    titlePanel("Visualize Many Models 2.0"),
     tabsetPanel(type = "tabs", 
         tabPanel("Application", {
             sidebarLayout(

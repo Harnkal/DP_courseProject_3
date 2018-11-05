@@ -1,0 +1,73 @@
+---
+title: "Visualize Many Models 2.0"
+author: "Silva, Rafael"
+date: "November 4, 2018"
+output: 
+    ioslides_presentation:
+        widescreen: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Visualize Many Models
+
+<div class="centered">
+Have you ever thought, "how can I predict the volume of a three through it's girth measurements?".
+
+PROBABLY NOT!
+
+Cause that is not how the normal human brain works.
+
+However by the end of the first week of this course you ended up with an application that does exactly that, and better yet, it gave you the option of performing that on a incomplete dataset, by giving you the power to arbitrarily select any set of observations you want.
+</div>
+
+## How trustable is this tool?
+
+<div class="centered">
+As you had no need at all for that tool, you might not have thought about the confiability of such tool.
+
+BUT HERE WE ARE AGAIN!
+
+**VISUALIZE MANY MODELS 2.0**
+
+You heard it right, we have improved the tool that you will never use in your life!
+</div>
+
+## How did you accomplish that? {.build}
+
+Here is a list of the several steps we used to improve this amazingly useless tool:
+
+- We added 2 flags do you can visualize the confidence and prediction interval of the resulting fit.
+- We made a list of things we made to improve.
+- Filled this list with as many useless itens as we could.
+- And it is pretty much that.
+
+## Here is the result
+
+If you select all the points and click both flags you should get something like this:
+
+```{r, fig.height=3, fig.width=7}
+model <- lm(Volume ~ Girth, data = trees)
+CI <- predict(model, newdata = trees, interval = "confidence")
+PI <- predict(model, newdata = trees, interval = "prediction")
+
+plot(trees$Girth, trees$Volume, xlab = "Girth",
+             ylab = "Volume", main = "Tree Measurements",
+             cex = 1.5, pch = 16, bty = "n")
+abline(model, col = "blue", lwd = 2)
+
+lines(x = trees$Girth, y = CI[,2], col = "purple", lwd = 2)
+lines(x = trees$Girth, y = CI[,3], col = "purple", lwd = 2)
+
+lines(x = trees$Girth, y = PI[,2], col = "red", lwd = 2)
+lines(x = trees$Girth, y = PI[,3], col = "red", lwd = 2)
+
+```
+
+<div class="centered">
+THANK YOU FOR YOUR TIME!
+
+Sorry for wasting it!
+</div>
